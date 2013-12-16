@@ -1,0 +1,2 @@
+var common;
+var plugins;
