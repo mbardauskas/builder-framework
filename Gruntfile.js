@@ -5,16 +5,16 @@ module.exports = function(grunt) {
 		concat: {
 			dist: {
 				src: [
-					'dev/js/*.js',
-					'dev/js/common.js'
+					'./templates/js/*.js',
+					'./templates/js/common.js'
 				],
-				dest: 'dist/js/dist.js'
+				dest: '../js/dist.js'
 			}
 		},
 		uglify: {
 			build: {
-				src: 'dist/js/dist.js',
-				dest: 'dist/js/dist.min.js'
+				src: '../js/dist.js',
+				dest: '../js/dist.min.js'
 			}
 		},
 		imagemin: {
@@ -24,9 +24,9 @@ module.exports = function(grunt) {
 				},
 				files:[{
 					expand : true,
-					cwd : './dev/img/',
+					cwd : './templates/img/',
 					src : ['**/*.png'],
-					dest : './dist/img/',
+					dest : './../img/',
 					ext : '.png'
 				}]
 			}, 
@@ -36,15 +36,15 @@ module.exports = function(grunt) {
 				},
 				files:[{
 					expand : true,
-					cwd : './dev/img/',
+					cwd : './templates/img/',
 					src : ['**/*.jpg'],
-					dest : './dist/img/',
+					dest : './../img/',
 					ext : '.jpg'
 				}]
 			}
 		},
 		jshint: {
-			files: ['Gruntfile.js', 'dev/**/*.js'],
+			files: ['Gruntfile.js', './templates/**/*.js'],
 			options: {
 				curly: true,
 				eqeqeq:  true,
@@ -83,14 +83,14 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			scripts: {
-				files: ['dev/js/*.js'],
+				files: ['./templates/js/*.js'],
 				tasks: ['concat', 'uglify'],
 				options: {
 					spawn: false
 				}
 			},
 			css: {
-				files: ['dev/sass/*.scss'],
+				files: ['./templates/sass/*.scss'],
 				tasks: ['sass'],
 				options: {
 					spawn: false
@@ -103,9 +103,9 @@ module.exports = function(grunt) {
 					style: 'compressed'
 				},
 				expand: true,
-				cwd: './dev/sass/',
+				cwd: './templates/sass/',
 				src: ['all.scss'],
-				dest: './dist/css/',
+				dest: './../css/',
 				ext: '.css'
 			},
 			dev: {
@@ -115,15 +115,15 @@ module.exports = function(grunt) {
 					lineNumbers: true
 				},
 				expand: true,
-				cwd: './dev/sass/',
+				cwd: './templates/sass/',
 				src: ['all.scss'],
-				dest: './dev/css/',
+				dest: './templates/css/',
 				ext: '.css'
 			}
 		},
 		browser_sync: {
 			files: {
-				src : './dev/css/all.css'
+				src : './templates/css/all.css'
 			},
 			options: {
 				watchTask: true,
