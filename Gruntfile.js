@@ -6,40 +6,40 @@ module.exports = function(grunt) {
 			dist: {
 				src: [
 					'dev/js/*.js',
-					'dev/js/common.js',
+					'dev/js/common.js'
 				],
-				dest: 'dist/js/dist.js',
-			},
+				dest: 'dist/js/dist.js'
+			}
 		},
 		uglify: {
 			build: {
 				src: 'dist/js/dist.js',
-				dest: 'dist/js/dist.min.js',
-			},
+				dest: 'dist/js/dist.min.js'
+			}
 		},
 		imagemin: {
 			png: {
 				options: { 
-					optimizationLevel: 7,
+					optimizationLevel: 7
 				},
 				files:[{
 					expand : true,
 					cwd : './dev/img/',
 					src : ['**/*.png'],
 					dest : './dist/img/',
-					ext : '.png',
+					ext : '.png'
 				}]
 			}, 
 			jpg: {
 				options: {
-					progressive: true,
+					progressive: true
 				},
 				files:[{
 					expand : true,
 					cwd : './dev/img/',
 					src : ['**/*.jpg'],
 					dest : './dist/img/',
-					ext : '.jpg',
+					ext : '.jpg'
 				}]
 			}
 		},
@@ -86,21 +86,21 @@ module.exports = function(grunt) {
 				files: ['dev/js/*.js'],
 				tasks: ['concat', 'uglify'],
 				options: {
-					spawn: false,
-				},
+					spawn: false
+				}
 			},
 			css: {
 				files: ['dev/sass/*.scss'],
 				tasks: ['sass'],
 				options: {
-					spawn: false,
-				},
-			},
+					spawn: false
+				}
+			}
 		},
 		sass: {
 			dist: {
 				options: {
-					style: 'compressed',
+					style: 'compressed'
 				},
 				expand: true,
 				cwd: './dev/sass/',
@@ -112,7 +112,7 @@ module.exports = function(grunt) {
 				options: {
 					style: 'expanded',
 					debugInfo: true,
-					lineNumbers: true,
+					lineNumbers: true
 				},
 				expand: true,
 				cwd: './dev/sass/',
@@ -136,7 +136,7 @@ module.exports = function(grunt) {
 					}
 				}
 			}
-		},
+		}
 	});
 
 	// use these plugins
