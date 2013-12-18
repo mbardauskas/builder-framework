@@ -5,9 +5,9 @@ class Page {
 	private $pageType;
 	
 	function __construct($filename) {
-		$this->pageName = basename($filename, ".php");;
+		$this->pageName = basename($filename, ".php");
 		$this->pageDir = dirname($filename);
-		$this->pageType = "dev";
+		$this->setPageType();
 	}
 	
 	public function getPageType() {
@@ -33,5 +33,14 @@ class Page {
 	
 	private function buildBlockPath($block_name) {
 		return $this->pageDir . DIRECTORY_SEPARATOR . BLOCKS_DIR_NAME . DIRECTORY_SEPARATOR . $block_name . BLOCK_TEMPLATE_EXTENSION;
+	}
+
+	private function setPageType() {
+		if(isset($_GET['e']) && !empty($_GET['e'])) {
+			$this->pageType = $_GET['e'];
+		}
+		else {
+			$this->pageType = "dev";
+		}
 	}
 }
