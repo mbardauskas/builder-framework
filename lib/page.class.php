@@ -10,17 +10,20 @@ class Page {
 		$this->pageType = "dev";
 	}
 	
-	public function renderBlock($block) {
-		echo $this->prerenderBlock($block);
-	}
-	
 	public function getPageType() {
 		return $this->pageType;
 	}
 	
+	public function wrapBlock($block_name, $code) {
+		$path = $this->buildBlockPath($block_name);
+		$page = $this;
+		$output = $code;
+		ob_start();
+		include($path);
+		return ob_get_clean();
+	}
 	
-	
-	private function prerenderBlock($block) {
+	public function prerenderBlock($block) {
 		$path = $this->buildBlockPath($block);
 		$page = $this;
 		ob_start();
@@ -29,8 +32,6 @@ class Page {
 	}
 	
 	private function buildBlockPath($block_name) {
-		return $this->pageDir . DIRECTORY_SEPARATOR . BLOCKS_DIR_NAME . DIRECTORY_SEPARATOR . $block_name . TEMPLATE_EXTENSION;
+		return $this->pageDir . DIRECTORY_SEPARATOR . BLOCKS_DIR_NAME . DIRECTORY_SEPARATOR . $block_name . BLOCK_TEMPLATE_EXTENSION;
 	}
 }
-
-?>
