@@ -1,14 +1,16 @@
 <?php
-require_once 'lib/includes.php';
+require_once 'config.php';
 
-$templates_path = dirname(__FILE__) . DIRECTORY_SEPARATOR . TEMPLATES_DIR;
-$templates_uri = $_SERVER['REQUEST_URI'] . TEMPLATES_DIR;
-$template_list = buildTemplateList($templates_path);
+$prefs = Preferences::getInstance();
+$tpl_dir = $prefs->getProp("TEMPLATES_DIR_NAME");
+$tpl_url = $prefs->getProp("TEMPLATES_URL");
+
+$template_list = buildTemplateList($tpl_dir);
 
 if(!empty($template_list)): ?>
 <ul>
 <?php foreach($template_list as $template): ?>
-	<li><a href="<?php echo $templates_uri . '/' . $template ?>"><?php echo $template ?></a></li>
+	<li><a href="<?php echo $tpl_url . '/' . $template ?>"><?php echo $template ?></a></li>
 <?php endforeach; ?>
 </ul>
 <?php endif; ?>

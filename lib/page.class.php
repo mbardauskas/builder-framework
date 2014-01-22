@@ -32,7 +32,11 @@ class Page {
 	}
 	
 	private function buildBlockPath($block_name) {
-		return $this->pageDir . DIRECTORY_SEPARATOR . BLOCKS_DIR_NAME . DIRECTORY_SEPARATOR . $block_name . BLOCK_TEMPLATE_EXTENSION;
+		$prefs = Preferences::getInstance();
+		$blocks_dir_name = $prefs->getProp("BLOCKS_DIR_NAME");
+		$tpl_ext = $prefs->getProp("BLOCKS_TPL_EXTENSION");
+
+		return $this->pageDir . DS . $blocks_dir_name . DS . $block_name . $tpl_ext;
 	}
 
 	private function setPageType() {
