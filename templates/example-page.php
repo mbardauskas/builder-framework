@@ -2,7 +2,7 @@
 require_once '../config.php';
 $page = new Page(__FILE__);
 
-$output = $page->prerenderBlock('example-block');
-$output = $page->wrapBlock('example-block-wrapper', $output);
-
-echo $output;
+echo $page->prerenderBlock('example-block');
+echo $page->prerenderRegion('example-block-wrapper', array(
+	'content' => $page->prerenderBlock('example-block'),
+));

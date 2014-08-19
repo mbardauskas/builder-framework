@@ -1,5 +1,6 @@
 <?php
 define("DS", DIRECTORY_SEPARATOR);
+define("ENVIRONMENT", "DEV");
 require_once 'lib/includes.php';
 
 $prefs = Preferences::getInstance();

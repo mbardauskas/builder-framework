@@ -1,8 +1,6 @@
 <?php 
 /**
- * Block template
- * 
- * @param Page $page
+ * @var Page $page
  */
 ?>
 <p>valio</p>

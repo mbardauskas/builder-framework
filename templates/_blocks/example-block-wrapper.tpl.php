@@ -1,13 +1,11 @@
 <?php 
 /**
- * Block wrapper template
- * 
- * @param Page $page
- * @param string $output
+ * @var Page $page
+ * @var array $blocks
  */
 ?>
 <div class="wrapper">
 	<p>text before</p>
-		<?php echo $output; ?>
+		<?php echo $blocks['content']; ?>
 	<p>text after</p>
 </div>
