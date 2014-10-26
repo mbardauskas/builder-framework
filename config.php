@@ -7,7 +7,7 @@ $prefs = Preferences::getInstance();
 
 // default dev structure
 $prefs->setProp("ROOT_PATH", dirname(__FILE__) . DS);
-$prefs->setProp("ROOT_URL", str_replace('index.php', '', $_SERVER['PHP_SELF']));
+$prefs->setProp("ROOT_URL", str_replace('index.php', '', $_SERVER['PHP_SELF'])); // @TODO: Fix ROOT_URL
 $prefs->setProp("BLOCKS_DIR_NAME", "_blocks");
 $prefs->setProp("BLOCKS_TPL_EXTENSION", ".tpl.php");
 $prefs->setProp("TEMPLATES_DIR_NAME", "templates");
